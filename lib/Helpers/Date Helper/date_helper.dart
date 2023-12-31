@@ -24,6 +24,7 @@ class DateHelper {
     return formattedDate;
   }
 
+  // ignore: non_constant_identifier_names
   static String Hour12formatTime(String inputTime) {
     try {
       // Parse the input time string
@@ -56,13 +57,13 @@ class DateHelper {
   }
 
   static String convertDateFormat(String originalDate) {
-    DateTime dateTime = DateTime.parse(originalDate).add(Duration(hours: 5));
+    DateTime dateTime = DateTime.parse(originalDate).add(const Duration(hours: 5));
     DateFormat dateFormat = DateFormat.yMMMMd('en_US');
     return dateFormat.format(dateTime);
   }
 
   static String convertTo12HourFormatFromTimeStamp(String timestamp) {
-    DateTime dateTime = DateTime.parse(timestamp).add(Duration(hours: 5));
+    DateTime dateTime = DateTime.parse(timestamp).add(const Duration(hours: 5));
     String formattedTime = DateFormat('h:mm a').format(dateTime);
 
     return formattedTime;
@@ -168,7 +169,6 @@ class DateHelper {
   // for chat app
   static DateTime returnDateAndTimeFormat(String time) {
     var dt = DateTime.fromMicrosecondsSinceEpoch(int.parse(time.toString()));
-    var originalDate = DateFormat('MM/dd/yyyy').format(dt);
     return DateTime(dt.year, dt.month, dt.day);
   }
 
@@ -183,7 +183,6 @@ class DateHelper {
   // function to return date if date changes based on your local date and time
   static String groupMessageDateAndTime(String time) {
     var dt = DateTime.fromMicrosecondsSinceEpoch(int.parse(time.toString()));
-    var originalDate = DateFormat('MM/dd/yyyy').format(dt);
 
     final todayDate = DateTime.now();
 

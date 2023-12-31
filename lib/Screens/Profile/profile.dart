@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laundryday/Resources/Sizedbox/sizedbox.dart';
+import 'package:laundryday/Screens/Signup/signup.dart';
+import 'package:laundryday/Widgets/My%20App%20bar/my_app_bar.dart';
+import 'package:laundryday/Widgets/My%20Heading/heading.dart';
 
 import '../../Resources/Colors/colors.dart';
 import '../../Widgets/My Button/my_button.dart';
-import '../../Widgets/My TextForm Field/my_textform_field.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -17,58 +19,57 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        toolbarHeight: 70,
-        backgroundColor: primaryColor,
-        title: Text(
-          'Profile',
-          style: GoogleFonts.ubuntu(),
-        ),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20), // Adjust the value as needed
-          ),
-        ),
+      backgroundColor: whiteColor,
+      appBar: MyAppBar(
+        title: "Profile",
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image.asset('assets/
             30.ph,
+            Heading(text: 'Personal Information'),
+            30.ph,
+            Row(
+              children: [
+                const Icon(
+                  Icons.person_2_outlined,
+                  color: greyColor,
+                ),
+                10.pw,
+                HeadingSmall(name: "Full Name"),
+              ],
+            ),
+            10.ph,
             Text(
-              'Personal Information',
-              style:
-                  GoogleFonts.ubuntu(fontSize: 20, fontWeight: FontWeight.w500),
+              "Suleman Abrar",
+              style: GoogleFonts.poppins(),
             ),
-            20.ph,
-            MyTextFormField(
-                hintText: 'Mobile Number', labelText: 'Mobile Number'),
-            20.ph,
-            MyTextFormField(hintText: 'First Name', labelText: 'First Name'),
-            20.ph,
-            MyTextFormField(hintText: 'Last Name', labelText: 'Last Name'),
-            20.ph,
-            SizedBox(
-              width: 286,
-              child: ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  onTap: () {},
-                  tileColor: Color(0xffEEEEEE),
-                  trailing: Icon(Icons.navigate_next),
-                  title: Text(
-                    'Address',
-                    style: GoogleFonts.ubuntu(
-                        fontWeight: FontWeight.w500, color: primaryColor),
-                  )),
+            const Divider(),
+            10.ph,
+            Row(
+              children: [
+                const Icon(
+                  Icons.phone_android_outlined,
+                  color: greyColor,
+                ),
+                10.pw,
+                HeadingSmall(name: "Mobile Number"),
+              ],
             ),
-            20.ph,
+            10.ph,
+            Text(
+              "+96633247474",
+              style: GoogleFonts.poppins(),
+            ),
+            const Divider(),
+            const Spacer(),
             MyButton(
-              name: 'Save',
+              name: 'Edit Profile',
               onPressed: () {},
-            )
+            ),
+            30.ph,
           ],
         ),
       ),

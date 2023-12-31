@@ -11,6 +11,6 @@ class Splash extends StatelessWidget {
         centerTitle: true,
       ),
     );
-    ;
+    
   }
 }

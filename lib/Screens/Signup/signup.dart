@@ -6,6 +6,7 @@ import 'package:laundryday/Resources/Sizedbox/sizedbox.dart';
 import '../../Resources/Colors/colors.dart';
 import '../../Routes/route_names.dart';
 import '../../Widgets/My Button/my_button.dart';
+import '../../Widgets/My Heading/heading.dart';
 import '../../Widgets/My TextForm Field/my_textform_field.dart';
 
 class Signup extends StatelessWidget {
@@ -14,42 +15,78 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              "What's your name?",
-              style: GoogleFonts.ubuntu(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w400,
-                  color: primaryColor),
-            ),
-            14.ph,
-            Text(
-              "Enter the name you user in real life.",
-              style: GoogleFonts.ubuntu(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-            10.ph,
-            const MyTextFormField(
-                hintText: 'First Name', labelText: 'First Name'),
-            10.ph,
-            MyTextFormField(hintText: 'Last Name', labelText: 'Last Name'),
-            30.ph,
-            MyButton(
-              onPressed: () {
-                GoRouter.of(context).pushNamed(RouteNames().laundries);
-              },
-              name: 'Signup',
-            ),
-          ],
-        ),
+        body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          const Spacer(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Heading(
+                text: "What's your Full Name?",
+              ),
+              20.ph,
+              Text(
+                "Name",
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    color: greyColor),
+              ),
+              10.ph,
+              const MyTextFormField(
+                  hintText: 'Enter your Full Name.', labelText: ''),
+              20.ph,
+              MyButton(
+                onPressed: () {
+                  GoRouter.of(context).pushNamed(RouteNames().home);
+                },
+                name: 'Signup',
+              ),
+              40.ph
+            ],
+          ),
+        ],
+      ),
+    ));
+  }
+}
+
+class HeadingMedium extends StatelessWidget {
+  final String name;
+  Color? color;
+
+  HeadingMedium({super.key, required this.name, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      name,
+      style: GoogleFonts.poppins(
+          fontWeight: FontWeight.w600,
+          fontSize: 18,
+          color: color ?? blackColor),
+    );
+  }
+}
+
+class HeadingSmall extends StatelessWidget {
+  final String name;
+
+  Color? color;
+  HeadingSmall({super.key, required this.name, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      name,
+      textAlign: TextAlign.center,
+      style: GoogleFonts.poppins(
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+        color: color ?? greyColor,
       ),
     );
-    ;
   }
 }

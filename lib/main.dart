@@ -7,7 +7,7 @@ import 'Routes/app_routes.dart';
 void main() {
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // Set the status bar color here
+    statusBarColor: Colors.white, // Set the status bar color here
   ));
 }
 
@@ -22,9 +22,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: AppRoutes().routes,
-      theme: ThemeData(primaryColor: primaryColor, useMaterial3: false),
       debugShowCheckedModeBanner: false,
+      routerConfig: AppRoutes().routes,
+      // routeInformationParser: AppRoutes().routes.routeInformationParser,
+      // routerDelegate: AppRoutes().routes.routerDelegate,
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        useMaterial3: false,
+      ),
     );
   }
 }

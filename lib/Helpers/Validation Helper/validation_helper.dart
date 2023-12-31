@@ -84,13 +84,13 @@ class ValidationHelper {
 
   String? emailValidator(String? v) {
     String string = v!.trim();
-    bool _emailValid = RegExp(
+    bool emailValid = RegExp(
             r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
         .hasMatch(string);
 
     if (string.isEmpty) {
       return 'Please enter your email';
-    } else if (!_emailValid) {
+    } else if (!emailValid) {
       return 'Please enter a valid email';
     } else {
       return null;

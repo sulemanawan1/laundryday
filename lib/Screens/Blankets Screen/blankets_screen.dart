@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:laundryday/Resources/Sizedbox/sizedbox.dart';
 
 import '../../Resources/Colors/colors.dart';
-import 'Model/blanket.dart';
+import '../../Models/blanket.dart';
 
 class BlanketsScreen extends StatefulWidget {
   const BlanketsScreen({super.key});
@@ -17,7 +17,6 @@ class _BlanketsScreenState extends State<BlanketsScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     blankets.add(Blanket(name: 'Bed Spread'));
     blankets.add(Blanket(name: 'Blanket'));
@@ -67,7 +66,7 @@ class _BlanketsScreenState extends State<BlanketsScreen> {
                     color: Colors.grey.withOpacity(0.1), // Shadow color
                     spreadRadius: 5, // Spread radius
                     blurRadius: 6, // Blur radius
-                    offset: Offset(0, 3), // Offset for the shadow
+                    offset: const Offset(0, 3), // Offset for the shadow
                   ),
                 ],
                 color: Colors.white),

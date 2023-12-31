@@ -58,25 +58,25 @@ class MyTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? 286,
+      width: width ?? double.infinity,
       // height: height ?? 43.w,
       child: TextFormField(
-        style: GoogleFonts.ubuntu(
+        style: GoogleFonts.poppins(
             fontWeight: FontWeight.w400,
             fontSize: 15,
             letterSpacing: 0.05,
-            color: textColor ?? null),
+            color: textColor),
         keyboardType: textInputType,
         textAlign: textAlign ?? TextAlign.start,
         onTap: onTap,
         validator: validator,
         maxLines: maxLines ?? 1,
         controller: controller,
-        maxLength: maxLength ?? null,
+        maxLength: maxLength,
         cursorColor: primaryColor,
         readOnly: readOnly ?? false,
         decoration: InputDecoration(
-          errorStyle: GoogleFonts.ubuntu(
+          errorStyle: GoogleFonts.poppins(
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w400,
             fontSize: 10,
@@ -91,7 +91,8 @@ class MyTextFormField extends StatelessWidget {
           ),
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
-          contentPadding: contentPadding ?? EdgeInsets.fromLTRB(25, 13, 0, 13),
+          contentPadding:
+              contentPadding ?? const EdgeInsets.fromLTRB(25, 13, 0, 13),
           filled: fill ?? true,
           labelStyle: GoogleFonts.ubuntu(
               fontStyle: FontStyle.normal,
